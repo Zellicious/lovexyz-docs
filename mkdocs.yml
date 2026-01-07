@@ -3,9 +3,15 @@ site_url: https://Zellicious.github.io/lovexyz-docs/
 
 theme:
   name: material
+  palette:
+    scheme: slate
+    primary: blue
+  
   
 nav:
   - Home: index.md
   - Navigation: doc-main.md
   - Documentation: 
-    - engine.lua: engine.md
+    - engine.lua: scripts/engine.md
+    - obj.lua: scripts/obj.md
+    - triangles.lua: scripts/triangles.md

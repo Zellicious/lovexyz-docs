@@ -3,24 +3,27 @@
 The script that returns when you require lovexyz. <br>
 Used to handle the main drawing, transforming, and shading processes. <br>
 
+All meshes are rendered from [```triangles.lua```](triangles.md).
+
+
 ## Parameters
 
 The modifiable parameters for engine.lua
 
-#### ```engine.canvas ``` 
+### ```engine.canvas ``` 
 
 The main canvas when drawing to the window.
 <br>
 <br>
 
-#### ```engine.depthCanvas``` 
+### ```engine.depthCanvas``` 
 
 The depth buffer of the main canvas.
 <br>
 <br>
 
 
-#### ```engine.graphicsScale ```
+### ```engine.graphicsScale ```
 
 The main canvas resolution multiplier based on screen resolution.
 <br>
@@ -129,44 +132,44 @@ Camera offset matrix.
 
 ----
 
-#### ```engine.skyboxShader``` 
+### ```engine.skyboxShader``` 
 
 The skybox shader used when rendering to the main canvas if ```engine.lighting.skyboxEnabled``` is true.
 <br>
 <br>
 
 
-#### ```engine.transformShader``` 
+### ```engine.transformShader``` 
 
 The main shader used when rendering to the main canvas, handles projection and lighting based on ```engine.lighting``` params.
 <br>
 <br>
 
-#### ```engine.transformOnly``` 
+### ```engine.transformOnly``` 
 
 Shader used for custom depth canvases.
 <br>
 <br>
 
-#### ```engine.proj``` 
+### ```engine.proj``` 
 
 Perspective projection of the main camera.
 <br>
 <br>
 
-#### ```engine.skyboxFormat```
+### ```engine.skyboxFormat```
 
 Vertex format of the skybox.
 <br>
 <br>
 
-#### ```engine.skyboxMesh``` 
+### ```engine.skyboxMesh``` 
 
 Mesh of the skybox.
 <br>
 <br>
 
-#### ```engine.skyTexture``` 
+### ```engine.skyTexture``` 
 
 The texture of the skybox.
 <br>
@@ -174,19 +177,19 @@ The texture of the skybox.
 <br>
 <br>
 
-#### ```engine.shadowMap``` 
+### ```engine.shadowMap``` 
 
 A canvas containing orthographic depth information from the sun's view.
 <br>
 <br>
 
-#### ```engine.shadowSize``` 
+### ```engine.shadowSize``` 
 
 A number to be used by ```engine.sunProj```.
 <br>
 <br>
 
-#### ```engine.sunProj``` 
+### ```engine.sunProj``` 
 
 Orthographic projection matrix of the sun.
 <br>
