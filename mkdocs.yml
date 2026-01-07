@@ -3,9 +3,11 @@ site_url: https://Zellicious.github.io/lovexyz-docs/
 
 theme:
   name: material
+  logo: png/icon.svg
+  favicon: png/icon.svg
   palette:
     scheme: slate
-    primary: blue
+    primary: black
   
   
 nav:
