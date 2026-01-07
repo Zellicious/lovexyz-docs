@@ -29,12 +29,48 @@ Stores cached textures.
 <br>
 
 
-### ```triangles.textureCache```
+### ```triangles.format```
 
-Stores cached textures.
+The vertex format when creating a new triangle/model.
 <br>
 <br>
 
 
 ## Functions
 
+
+
+
+----
+
+### ```triangles.loadModel(path,usage,lookupName)```
+
+Loads a model and returns a model (table) class.
+<br>
+<br>
+
+#### ```model```
+
+The returned model class when calling ```triangles.loadModel()```.
+<br>
+<br>
+
+#### ```model.mesh```
+
+The model mesh that is stored in ```triangles.meshes```.
+<br>
+<br>
+
+#### ```model.transformMatrix```
+
+The models ```mat4``` to alter the vertexes of the model when rendering.
+<br>
+<br>
+
+#### ```model.visible```
+
+Toggles the models visibility when rendering.
+<br>
+<br>
+
+----
