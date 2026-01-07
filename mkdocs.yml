@@ -1,0 +1,10 @@
+site_name: LoveXYZ documentation
+
+theme:
+  name: mkdocs # Or 'mkdocs' (default)
+  # For the popular 'material' theme, first install it via pip
+  # and then change the name here:
+  # name: material 
+
+nav:
+  - Home: index.md
