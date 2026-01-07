@@ -1,9 +1,10 @@
 site_name: love_xyz documentation
 
 theme:
-  name: mkdocs
+  name: readthedocs
   
 nav:
   - home: index.md
-  - documentation:
+  - documentation: doc-main.md
+  - navigation: 
     - engine.lua: engine.md
