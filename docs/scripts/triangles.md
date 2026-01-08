@@ -5,7 +5,7 @@ Uses [```obj.lua```](obj.md) to parse obj files and convert them to mesh data <b
 
 Default global: ```triangles``` <br>
 
-## Parameters
+## **Parameters**
 
 
 ### ```triangles.meshes```
@@ -36,7 +36,7 @@ The vertex format when creating a new triangle/model.
 <br>
 
 
-## Functions
+## **Functions**
 
 
 
@@ -74,3 +74,9 @@ Toggles the models visibility when rendering.
 <br>
 
 ----
+
+### ```triangles.newTexture(path,name)```
+
+Loads a image file, store it in ```triangles.textureCache``` (with index ```name```), and returns the texture.<br>
+<br>
+<br>

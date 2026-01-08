@@ -466,10 +466,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#trianglestexturecache_1" class="md-nav__link">
+  <a href="#trianglesformat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        triangles.textureCache
+        triangles.format
       
     </span>
   </a>
@@ -489,6 +489,73 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trianglesloadmodelpathusagelookupname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        triangles.loadModel(path,usage,lookupName)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="triangles.loadModel(path,usage,lookupName)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelmesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        model.mesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modeltransformmatrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        model.transformMatrix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelvisible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        model.visible
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -580,10 +647,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#trianglestexturecache_1" class="md-nav__link">
+  <a href="#trianglesformat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        triangles.textureCache
+        triangles.format
       
     </span>
   </a>
@@ -603,6 +670,73 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trianglesloadmodelpathusagelookupname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        triangles.loadModel(path,usage,lookupName)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="triangles.loadModel(path,usage,lookupName)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelmesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        model.mesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modeltransformmatrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        model.transformMatrix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelvisible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        model.visible
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -640,11 +774,33 @@ Uses <a href="../obj/"><code>obj.lua</code></a> to parse obj files and convert t
 <p>Stores cached textures.
 <br>
 <br></p>
-<h3 id="trianglestexturecache_1"><code>triangles.textureCache</code></h3>
-<p>Stores cached textures.
+<h3 id="trianglesformat"><code>triangles.format</code></h3>
+<p>The vertex format when creating a new triangle/model.
 <br>
 <br></p>
 <h2 id="functions">Functions</h2>
+<hr />
+<h3 id="trianglesloadmodelpathusagelookupname"><code>triangles.loadModel(path,usage,lookupName)</code></h3>
+<p>Loads a model and returns a model (table) class.
+<br>
+<br></p>
+<h4 id="model"><code>model</code></h4>
+<p>The returned model class when calling <code>triangles.loadModel()</code>.
+<br>
+<br></p>
+<h4 id="modelmesh"><code>model.mesh</code></h4>
+<p>The model mesh that is stored in <code>triangles.meshes</code>.
+<br>
+<br></p>
+<h4 id="modeltransformmatrix"><code>model.transformMatrix</code></h4>
+<p>The models <code>mat4</code> to alter the vertexes of the model when rendering.
+<br>
+<br></p>
+<h4 id="modelvisible"><code>model.visible</code></h4>
+<p>Toggles the models visibility when rendering.
+<br>
+<br></p>
+<hr />
 
 
 

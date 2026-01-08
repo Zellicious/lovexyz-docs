@@ -6,9 +6,8 @@ Used to handle the main drawing, transforming, and shading processes. <br>
 All meshes are rendered from [```triangles.lua```](triangles.md).
 
 
-## Parameters
+## **Parameters**
 
-The modifiable parameters for engine.lua
 
 ### ```engine.canvas ``` 
 
@@ -78,6 +77,12 @@ Boolean to check for shadows, updating ```engine.shadowMap```, and used in ```en
 <br>
 <br>
 
+#### ```engine.lighting.simpleShadows``` 
+
+Boolean to toggle PCF or direct sampling for shadows, used in ```engine.transformShader``` .
+<br>
+<br>
+
 #### ```engine.lighting.specularEnabled``` 
 
 Boolean to check for speculars to be used in ```engine.transformShader``` .
@@ -95,6 +100,33 @@ Boolean to check for diffuse to be used in ```engine.transformShader``` .
 Boolean to draw the skybox.
 <br>
 <br>
+
+----
+
+### ```engine.lighting.colorCorrection``` 
+
+Color correction values to be used in ```engine.colorCorrection```
+<br>
+<br>
+
+#### ```engine.lighting.colorCorrection.brightness``` 
+
+Brightness of the screen (default = 1).
+<br>
+<br>
+
+#### ```engine.lighting.colorCorrection.contrast``` 
+
+Contrast of the screen (default = 1).
+<br>
+<br>
+
+#### ```engine.lighting.colorCorrection.saturation``` 
+
+Saturation of the screen (default = 1).
+<br>
+<br>
+
 
 ----
 
@@ -142,6 +174,12 @@ The skybox shader used when rendering to the main canvas if ```engine.lighting.s
 ### ```engine.transformShader``` 
 
 The main shader used when rendering to the main canvas, handles projection and lighting based on ```engine.lighting``` params.
+<br>
+<br>
+
+### ```engine.colorCorrection``` 
+
+The color correction shader.
 <br>
 <br>
 
@@ -195,7 +233,14 @@ Orthographic projection matrix of the sun.
 <br>
 <br>
 
-## Functions
+## **Functions**
+
+
+### ```engine.perfDebug()``` 
+
+Debug panel showing average fps and live fps.
+<br>
+<br>
 
 ### ```engine.draw()``` 
 
