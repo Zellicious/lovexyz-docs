@@ -183,9 +183,9 @@ The color correction shader.
 <br>
 <br>
 
-### ```engine.transformOnly``` 
+### ```engine.shadowMapShader``` 
 
-Shader used for custom depth canvases.
+Shader used for the shadow map.
 <br>
 <br>
 
