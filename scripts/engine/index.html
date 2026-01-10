@@ -1,0 +1,1624 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://Zellicious.github.io/lovexyz-docs/scripts/engine/">
+      
+      
+        <link rel="prev" href="../../doc-main/">
+      
+      
+        <link rel="next" href="../obj/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../png/icon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>engine.lua - love_xyz documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#enginelua" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="love_xyz documentation" class="md-header__button md-logo" aria-label="love_xyz documentation" data-md-component="logo">
+      
+  <img src="../../png/icon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            love_xyz documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              engine.lua
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="love_xyz documentation" class="md-nav__button md-logo" aria-label="love_xyz documentation" data-md-component="logo">
+      
+  <img src="../../png/icon.svg" alt="logo">
+
+    </a>
+    love_xyz documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../doc-main/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Navigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    engine.lua
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    engine.lua
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enginecanvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.canvas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginedepthcanvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.depthCanvas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginegraphicsscale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.graphicsScale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelighting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="engine.lighting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingsolidskycolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.solidSkyColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingsundirection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.sunDirection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingambient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.ambient
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingspecshininess" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.specShininess
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingspecstrength" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.specStrength
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingshadowenabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.shadowEnabled
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingsimpleshadows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.simpleShadows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingspecularenabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.specularEnabled
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingdiffuseenabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.diffuseEnabled
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingskyboxenabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.skyboxEnabled
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingcolorcorrection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.colorCorrection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="engine.lighting.colorCorrection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingcolorcorrectionbrightness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.colorCorrection.brightness
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingcolorcorrectioncontrast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.colorCorrection.contrast
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingcolorcorrectionsaturation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.colorCorrection.saturation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginecam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.cam
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="engine.cam">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enginecampos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.cam.pos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginecamrot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.cam.rot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginecamfov" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.cam.fov
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginecammatrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.cam.matrix
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engineskyboxshader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.skyboxShader
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginetransformshader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.transformShader
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginecolorcorrection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.colorCorrection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engineshadowmapshader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.shadowMapShader
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engineproj" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.proj
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engineskyboxformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.skyboxFormat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engineskyboxmesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.skyboxMesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engineskytexture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.skyTexture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engineshadowmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.shadowMap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engineshadowsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.shadowSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginesunproj" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.sunProj
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#engineperfdebug" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.perfDebug()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginedraw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.draw()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginerefreshcanvases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.refreshCanvases()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../obj/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    obj.lua
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../triangles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    triangles.lua
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enginecanvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.canvas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginedepthcanvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.depthCanvas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginegraphicsscale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.graphicsScale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelighting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="engine.lighting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingsolidskycolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.solidSkyColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingsundirection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.sunDirection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingambient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.ambient
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingspecshininess" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.specShininess
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingspecstrength" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.specStrength
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingshadowenabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.shadowEnabled
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingsimpleshadows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.simpleShadows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingspecularenabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.specularEnabled
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingdiffuseenabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.diffuseEnabled
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingskyboxenabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.skyboxEnabled
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingcolorcorrection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.colorCorrection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="engine.lighting.colorCorrection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingcolorcorrectionbrightness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.colorCorrection.brightness
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingcolorcorrectioncontrast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.colorCorrection.contrast
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginelightingcolorcorrectionsaturation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.lighting.colorCorrection.saturation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginecam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.cam
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="engine.cam">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enginecampos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.cam.pos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginecamrot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.cam.rot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginecamfov" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.cam.fov
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginecammatrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.cam.matrix
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engineskyboxshader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.skyboxShader
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginetransformshader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.transformShader
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginecolorcorrection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.colorCorrection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engineshadowmapshader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.shadowMapShader
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engineproj" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.proj
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engineskyboxformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.skyboxFormat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engineskyboxmesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.skyboxMesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engineskytexture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.skyTexture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engineshadowmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.shadowMap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engineshadowsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.shadowSize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginesunproj" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.sunProj
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#engineperfdebug" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.perfDebug()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginedraw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.draw()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enginerefreshcanvases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        engine.refreshCanvases()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="enginelua">engine.lua</h1>
+<p>The script that returns when you require lovexyz. <br>
+Used to handle the main drawing, transforming, and shading processes. <br></p>
+<p>All meshes are rendered from <a href="../triangles/"><code>triangles.lua</code></a>.</p>
+<h2 id="parameters"><strong>Parameters</strong></h2>
+<h3 id="enginecanvas"><code>engine.canvas</code></h3>
+<p>The main canvas when drawing to the window.
+<br>
+<br></p>
+<h3 id="enginedepthcanvas"><code>engine.depthCanvas</code></h3>
+<p>The depth buffer of the main canvas.
+<br>
+<br></p>
+<h3 id="enginegraphicsscale"><code>engine.graphicsScale</code></h3>
+<p>The main canvas resolution multiplier based on screen resolution.
+<br>
+<br></p>
+<hr />
+<h3 id="enginelighting"><code>engine.lighting</code></h3>
+<p>A container consisting of lighting parameters to be used by the renderer.
+<br>
+<br></p>
+<h4 id="enginelightingsolidskycolor"><code>engine.lighting.solidSkyColor</code></h4>
+<p>The default sky color if skybox is not rendered.
+<br>
+<br></p>
+<h4 id="enginelightingsundirection"><code>engine.lighting.sunDirection</code></h4>
+<p>The sun direction.
+<br>
+<em>note: sun direction will be normalized in the shader</em>
+<br>
+<em>note: direction is pointing from world origin to sun direction</em>
+<br>
+<br></p>
+<h4 id="enginelightingambient"><code>engine.lighting.ambient</code></h4>
+<p>The ambient value to be used in <code>engine.transformShader</code> .
+<br>
+<br></p>
+<h4 id="enginelightingspecshininess"><code>engine.lighting.specShininess</code></h4>
+<p>The specular exponent to be used in <code>engine.transformShader</code> .
+<br>
+<br></p>
+<h4 id="enginelightingspecstrength"><code>engine.lighting.specStrength</code></h4>
+<p>The specular strength to be used in <code>engine.transformShader</code> .
+<br>
+<br></p>
+<h4 id="enginelightingshadowenabled"><code>engine.lighting.shadowEnabled</code></h4>
+<p>Boolean to check for shadows, updating <code>engine.shadowMap</code>, and used in <code>engine.transformShader</code> .
+<br>
+<br></p>
+<h4 id="enginelightingsimpleshadows"><code>engine.lighting.simpleShadows</code></h4>
+<p>Boolean to toggle PCF or direct sampling for shadows, used in <code>engine.transformShader</code> .
+<br>
+<br></p>
+<h4 id="enginelightingspecularenabled"><code>engine.lighting.specularEnabled</code></h4>
+<p>Boolean to check for speculars to be used in <code>engine.transformShader</code> .
+<br>
+<br></p>
+<h4 id="enginelightingdiffuseenabled"><code>engine.lighting.diffuseEnabled</code></h4>
+<p>Boolean to check for diffuse to be used in <code>engine.transformShader</code> .
+<br>
+<br></p>
+<h4 id="enginelightingskyboxenabled"><code>engine.lighting.skyboxEnabled</code></h4>
+<p>Boolean to draw the skybox.
+<br>
+<br></p>
+<hr />
+<h3 id="enginelightingcolorcorrection"><code>engine.lighting.colorCorrection</code></h3>
+<p>Color correction values to be used in <code>engine.colorCorrection</code>
+<br>
+<br></p>
+<h4 id="enginelightingcolorcorrectionbrightness"><code>engine.lighting.colorCorrection.brightness</code></h4>
+<p>Brightness of the screen (default = 1).
+<br>
+<br></p>
+<h4 id="enginelightingcolorcorrectioncontrast"><code>engine.lighting.colorCorrection.contrast</code></h4>
+<p>Contrast of the screen (default = 1).
+<br>
+<br></p>
+<h4 id="enginelightingcolorcorrectionsaturation"><code>engine.lighting.colorCorrection.saturation</code></h4>
+<p>Saturation of the screen (default = 1).
+<br>
+<br></p>
+<hr />
+<h3 id="enginecam"><code>engine.cam</code></h3>
+<p>A container consisting of camera information.
+<br>
+<br></p>
+<h4 id="enginecampos"><code>engine.cam.pos</code></h4>
+<p>A <code>vec3</code> of the camera position in world space.
+<br>
+<br></p>
+<h4 id="enginecamrot"><code>engine.cam.rot</code></h4>
+<p>A <code>vec3</code> of the camera rotation in euler angles.
+<br>
+<br></p>
+<h4 id="enginecamfov"><code>engine.cam.fov</code></h4>
+<p>Field of view of the camera in radians.
+<br>
+<br></p>
+<h4 id="enginecammatrix"><code>engine.cam.matrix</code></h4>
+<p>Camera offset matrix.
+<br>
+<em>note: real camera matrix is handled internally</em>
+<br>
+<br></p>
+<hr />
+<h3 id="engineskyboxshader"><code>engine.skyboxShader</code></h3>
+<p>The skybox shader used when rendering to the main canvas if <code>engine.lighting.skyboxEnabled</code> is true.
+<br>
+<br></p>
+<h3 id="enginetransformshader"><code>engine.transformShader</code></h3>
+<p>The main shader used when rendering to the main canvas, handles projection and lighting based on <code>engine.lighting</code> params.
+<br>
+<br></p>
+<h3 id="enginecolorcorrection"><code>engine.colorCorrection</code></h3>
+<p>The color correction shader.
+<br>
+<br></p>
+<h3 id="engineshadowmapshader"><code>engine.shadowMapShader</code></h3>
+<p>Shader used for the shadow map.
+<br>
+<br></p>
+<h3 id="engineproj"><code>engine.proj</code></h3>
+<p>Perspective projection of the main camera.
+<br>
+<br></p>
+<h3 id="engineskyboxformat"><code>engine.skyboxFormat</code></h3>
+<p>Vertex format of the skybox.
+<br>
+<br></p>
+<h3 id="engineskyboxmesh"><code>engine.skyboxMesh</code></h3>
+<p>Mesh of the skybox.
+<br>
+<br></p>
+<h3 id="engineskytexture"><code>engine.skyTexture</code></h3>
+<p>The texture of the skybox.
+<br>
+<em>note: call <code>engine.skyboxMesh:setTexture(engine.skyTexture)</code> everytime you make changes to the sky texture</em>
+<br>
+<br></p>
+<h3 id="engineshadowmap"><code>engine.shadowMap</code></h3>
+<p>A canvas containing orthographic depth information from the sun's view.
+<br>
+<br></p>
+<h3 id="engineshadowsize"><code>engine.shadowSize</code></h3>
+<p>A number to be used by <code>engine.sunProj</code>.
+<br>
+<br></p>
+<h3 id="enginesunproj"><code>engine.sunProj</code></h3>
+<p>Orthographic projection matrix of the sun.
+<br>
+<br></p>
+<h2 id="functions"><strong>Functions</strong></h2>
+<h3 id="engineperfdebug"><code>engine.perfDebug()</code></h3>
+<p>Debug panel showing average fps and live fps.
+<br>
+<br></p>
+<h3 id="enginedraw"><code>engine.draw()</code></h3>
+<p>Handles and draws everything needed for the rendering.
+<br>
+<br></p>
+<h3 id="enginerefreshcanvases"><code>engine.refreshCanvases()</code></h3>
+<p>Refresh canvases that are altered by resolution.
+<br>
+<br></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
